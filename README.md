@@ -1,95 +1,188 @@
-Tahapan buat aplikasi make AI
-PENTING: Satu tahap bisa lebih dari satu kali prompting. Missal buat requriementent bisa jadi engga sekali prompt. Bahakan bisa 10 kali
-Sentuhan manusia masih perlu BANGET. Apalagi klo masih banyak error
-0.	Cari Ide Aplikasi
-Output: ide aplikasi
-1.	Tentuin Requirement
-Context: ide aplikasi
-Nanti buat requirement.md yang isina list fitur nya apa aja, aturannya gimana aja
-Buat dalam user story nya juga. Tentuin juga flow dari aplikasinya kayak gimana
-test plan juga dibuat. Test plan ini buat nanti setelah fitur nya beres di cek satu satu, firu ini udah belum, fitur itu udah belum dll
-Output: requirement.md, testplan.md
-2.	Tentuin Arsitektur umum aplikasi
-Context: Markdown requirement
-Misal frontend make apa, backend make apa, database make apa
-Terus tentuin nanti berati buat apa aja. Alur data nya kayak gimana. Komunikasinya kaya gimana. 
-Output: arsitektur.md
-3.	Tentuin skema database
-Context:requirement.md, arsitektur.md
-Tentuin nanti database nya mau kayak gimana. Dari mana kemana dll
-Skema datbasenya lengkap, dalam artian harus bener bener sampai kardinalitasnya
-Output: skema_database.plantuml
-4.	Tentuin API Documentation nya
-Context: requirement.md, arsitektur.md, skema_database.plantuml
-Buat api documentationnya untuk semua fitur yang ada
-Nanti hasilnya  postman collection yang bisa dipake
-Terus untuk fontend nya nanti buat dari mocking api dari postman. Dikasih example juga di postman nya 
-https://www.youtube.com/watch?v=fWOf0iNRcbg
+Tentu, berikut adalah versi Markdown dari tulisan Anda yang telah dirapikan dan diparafrase, beserta feedback dan saran:
 
-Ouput: postman-collection.json, mocking 
-Sisi Frontend
-5.	Tentuin Konteks project frontend
-Context: requirement.md, arsitektur.md, plantest.md, postman-collection.json
-Missal nanti struktur folder nyakayak gimana, package yang dipake apa aja , make frontend apa, missal boostrapt, terus style nya yang kayak gimana dll, penamaan file nya apa aja, aturan changelog nya kayak gimana.  Urutan fitur yang di buat apa aja, Aturanya apa aja. 
-Terus di file progress_frontend isinya itu kayak list apa aja yang mau dikerjain. Checklist nya juga. Jadi keliatan apa yang udah dibuat dan apa yang belum dibuat. . terus di bawahnya juga ada evaluasi pengerjaan progressnya. Misalnya ada kendala apa aja,terus solusinya apa.  Kayak lesson learned nya. Jadi ada judul, terus deskripsi kendala nya apa, terus deskrispi solusinya apa. Solusinya bisa jadi belum dikerjakan atau masih error. Tergantung nanti bagaimana  kondisinya . pastiin struktur foldernya itu mudah di maintance. Jadi bisa gampang keliatan kalau mau ada perubahan A, berarti yang di ubah yang mana. Terus performansinya bagus
-TIPS: aturan nya itu mulai buat dari struktur dasar nya dulu, terus buat fitur satu satu, habis itu langsung test. Setelah berhasil langsung dicommit, tambah changelog. INGET, urutannya fitur, test, catat, fitur, test, catat. Kalo ada error langsung catat error nya. Kasih status ini 
-OUTPUT: context_frontend.md, progress_frontend.md
-6.	Siapin environment project
-Context: context_frontend.md, progress_frontend.md, postman-collection.json
-Ini mulai install install project nya, dependensi nya, struktur folder nya. Terus buat test untuk arsitekturnya. Missal buat test routing, test nampilin frontend. Terus unit test sederhanya nya.  Apakah berhasil atau engga Kalo missal ada api, coba test make testing make cara routing kayak gitu bisa atau engga., pastiin evniroment nya aman kalo udah, lanjut
+# Langkah-Langkah Pengembangan Aplikasi AI
 
+**PENTING:** Setiap tahapan dapat melibatkan beberapa kali *prompting*. Misalnya, pembuatan *requirement* bisa memerlukan lebih dari satu *prompt*, bahkan mungkin hingga 10 kali. Sentuhan manusia tetap sangat penting, terutama saat masih banyak *error*.
 
-Unit test react: https://www.youtube.com/watch?v=i2MEVuInFKw
-Note: engga selalu harus make unit test direact, tapi make yang ada aja 
-OUTPUT: progress_frontend.md, project yang siap digunakan asik, unit test nya juga
-7.	Buat fitur pertama sampai fitur ke N
-Context: context_frontend.md, progress_frontend.md, postman-collection.json
-Waktu projectnya siap di isi, buat per fitur, jangan langsung semuanya. Buat satu satu missal auth dulu.  terus test makemocking dari postman
-Tampilannya di sesuain aja kalo kurang bagus
-Ouput: progress_frontend.md, unit test dan fiturny aberjalan dengan baik
+## 0. Cari Ide Aplikasi
+**Output:** Ide aplikasi
 
-8.	Cek Testplan frontend nya
-Context: context_frontend.md, progress_frontend.md, postman-collection.json, testplan.md
-Cek apakah semua fitur udah berhasil dijalankan,. Iudah sesuai requirement bnelum. Kalo masih ada penyesuaian, prompting lagi
-Output: progress_frontend.md, frontend nya sipa dipake
+## 1. Tentukan *Requirement*
+**Context:** Ide aplikasi
 
-9.	Build Aplikasi, deploy
-Context: project frontend, context_frontend.md, progress_frontend.md
-Jangan lupa setting environment nya jadi production
-Ini entah mau di mana bebsas, apa di vercel atau di mana gitu bebas, terugantung projectnya juga
-Output project yang udah di deploy
-Sisi Backend
-5.	Tentuin Konteks project backend
-Context: requirement.md, arsitektur.md, plantest.md, postman-collection.json, skema_database.plantuml
-Missal nanti struktur folder nyakayak gimana, package yang dipake apa aja , make framework apa apa, missal database apa, penamaan file nya apa aja, aturan changelog nya kayak gimana.  Urutan fitur yang di buat apa aja, Aturanya apa aja. 
-Terus di file progress_backend isinya itu kayak list apa aja yang mau dikerjain. Checklist nya juga. Jadi keliatan apa yang udah dibuat dan apa yang belum dibuat. . terus di bawahnya juga ada evaluasi pengerjaan progressnya. Misalnya ada kendala apa aja,terus solusinya apa.  Kayak lesson learned nya. Jadi ada judul, terus deskripsi kendala nya apa, terus deskrispi solusinya apa. Solusinya bisa jadi belum dikerjakan atau masih error. Tergantung nanti bagaimana  kondisinya . pastiin struktur foldernya itu mudah di maintance. Jadi bisa gampang keliatan kalau mau ada perubahan A, berarti yang di ubah yang mana
-TIPS: aturan nya itu mulai buat dari struktur dasar nya dulu, terus buat fitur satu satu, habis itu langsung test. Setelah berhasil langsung dicommit, tambah changelog. INGET, urutannya fitur, test, catat, fitur, test, catat. Kalo ada error langsung catat error nya. Kasih status ini 
-OUTPUT: context_backend.md, progress_backend.md
-6.	Siapin environment project
-Context: context_backend.md, progress_backend.md, postman-collection.json
-Ini mulai install install project nya, dependensi nya, struktur folder nya. Terus buat test untuk arsitekturnya. Kalo make Laravel langsung jadi seharusnya, tinggal pake
-OUTPUT: progress_backend.md, project yang siap digunakan asik, unit test nya juga
-7.	Siapin database & model nya dulu
-Context: context_backend.md, progress_backend.md, postman-collection.json, skema_database.plantuml
-Darii data skema database yang udah dibuat, buatin juga implementasi database nya. Terus dari implementasi database, buat model nya. Habis itu jangan lupa buat unit testnya, UNIT TEST DI BACKEND ITU KUDU.
-Output: database yang siap digunakan, progress_backend.md
-8.	Buat fitur pertama sampai fitur ke N
-Context: context_backend.md, progress_backend.md, postman-collection.json, skema_database.plantuml
-Waktu projectnya siap di isi, buat per fitur, jangan langsung semuanya. Buat satu satu missal auth dulu.  terus buat unit test nya
-Tips: buat nya dari yang ppaling intinya dulu, terus test, baru fitur tereus test, di akhirn baru route nya,terus test route nya 
-Ouput:,progress_frontend.md, unit test dan fiturny aberjalan dengan baik
+Buat berkas `requirement.md` yang berisi daftar fitur dan aturan aplikasi. Susun juga dalam bentuk *user story* dan tentukan alur aplikasi. Buat juga `testplan.md` untuk pengecekan fitur setelah selesai dikembangkan.
 
-9.	Cek Testplan backend nya
-Context: context_backend.md, progress_backend.md, postman-collection.json, testplan.md
-Cek apakah semua fitur udah berhasil dijalankan,. udah sesuai requirement belum. Kalo masih ada penyesuaian, prompting lagi
-Output: testplan.md, progress_backend.md, project backend nya siap dipake
-Katakanla frontend dan baclkend jadi
-10.	Cek integrasi dan finising
-Context: project frontend, projectbackend, context frotned bacend.md, progress frotnedn backend..mdm postman-collection.json, testplan.md
+**Output:** `requirement.md`, `testplan.md`
 
-11.	Build Aplikasi, deploy
-Context: project backend, context_backend.md , progress_backend.md (yang frontend juga)
-Jangan lupa setting environment nya jadi production
-Ini entah mau di mana bebsas, apa di vercel atau di mana gitu bebas, terugantung projectnya juga
-Output: project frontend dan backend yang udah di deploy
+## 2. Tentukan Arsitektur Umum Aplikasi
+**Context:** Berkas `requirement.md`
 
+Tentukan teknologi yang digunakan untuk *frontend*, *backend*, dan *database*. Rancang alur data dan komunikasi antar komponen.
+
+**Output:** `arsitektur.md`
+
+## 3. Tentukan Skema *Database*
+**Context:** `requirement.md`, `arsitektur.md`
+
+Rancang skema *database* secara lengkap, termasuk hubungan antar tabel dan entitas hingga kardinalitasnya.
+
+**Output:** `skema_database.plantuml`
+
+## 4. Tentukan Dokumentasi API
+**Context:** `requirement.md`, `arsitektur.md`, `skema_database.plantuml`
+
+Buat dokumentasi API untuk semua fitur yang ada. Hasilnya berupa *Postman Collection* yang dapat digunakan, termasuk *mocking* API dari Postman dengan contoh *request* dan *response*.
+
+[Referensi Mocking API Postman](https://www.youtube.com/watch?v=fWOf0iNRcbg)
+
+**Output:** `postman-collection.json`, *mocking* API
+
+## Sisi *Frontend*
+
+## 5. Tentukan Konteks Proyek *Frontend*
+**Context:** `requirement.md`, `arsitektur.md`, `testplan.md`, `postman-collection.json`
+
+Tentukan struktur *folder* proyek, paket (*package*) yang digunakan, teknologi *frontend* (misalnya *Bootstrap*), gaya (*style*), penamaan *file*, aturan *changelog*, urutan pengembangan fitur, dan aturan lainnya.
+
+Buat berkas `progress_frontend.md` yang berisi daftar tugas yang akan dikerjakan dan *checklist* progres. Di bagian bawah, tambahkan evaluasi progres pengerjaan, kendala, dan solusi (mirip *lesson learned*). Setiap kendala dan solusi didokumentasikan dengan judul dan deskripsi. Pastikan struktur *folder* mudah di-*maintain* dan *performance* aplikasi baik.
+
+**TIPS:** Mulai dari struktur dasar, kembangkan fitur satu per satu, langsung lakukan tes, catat hasil tes dan *changelog*. **INGAT**, urutannya: fitur, tes, catat. Jika ada *error*, segera catat *error* tersebut.
+
+**OUTPUT:** `context_frontend.md`, `progress_frontend.md`
+
+## 6. Siapkan *Environment* Proyek *Frontend*
+**Context:** `context_frontend.md`, `progress_frontend.md`, `postman-collection.json`
+
+Instal dependensi proyek, buat struktur *folder*, dan buat tes arsitektur (misalnya tes *routing* dan tampilan *frontend*). Lakukan *unit test* sederhana. Pastikan *environment* aman sebelum melanjutkan.
+
+[Referensi Unit Test React](https://www.youtube.com/watch?v=i2MEVuInFKw)
+
+**Catatan:** *Unit test* tidak harus selalu menggunakan React, sesuaikan dengan teknologi yang digunakan.
+
+**OUTPUT:** `progress_frontend.md`, proyek siap digunakan, termasuk *unit test*
+
+## 7. Kembangkan Fitur Pertama hingga Fitur ke-N
+**Context:** `context_frontend.md`, `progress_frontend.md`, `postman-collection.json`
+
+Setelah proyek siap, kerjakan fitur satu per satu, jangan langsung semuanya. Mulai dengan fitur inti (misalnya autentikasi). Gunakan *mocking* API dari Postman untuk pengembangan awal. Sesuaikan tampilan jika kurang memuaskan.
+
+**Output:** `progress_frontend.md`, *unit test* dan fitur berjalan dengan baik
+
+## 8. Cek *Testplan Frontend*
+**Context:** `context_frontend.md`, `progress_frontend.md`, `postman-collection.json`, `testplan.md`
+
+Periksa apakah semua fitur sudah berjalan sesuai *requirement*. Jika ada penyesuaian, lakukan *prompting* lagi.
+
+**Output:** `progress_frontend.md`, *frontend* siap digunakan
+
+## 9. *Build* Aplikasi, *Deploy*
+**Context:** Proyek *frontend*, `context_frontend.md`, `progress_frontend.md`
+
+Atur *environment* ke *production*. Pilih platform *deployment* (misalnya Vercel), sesuai kebutuhan proyek.
+
+**Output:** Proyek *frontend* yang sudah di-*deploy*
+
+## Sisi *Backend*
+
+## 5. Tentukan Konteks Proyek *Backend*
+**Context:** `requirement.md`, `arsitektur.md`, `testplan.md`, `postman-collection.json`, `skema_database.plantuml`
+
+Sama seperti *frontend*, tentukan struktur *folder*, paket (*package*) yang digunakan, *framework backend*, *database*, penamaan *file*, aturan *changelog*, urutan pengembangan fitur, dan aturan lainnya. Buat berkas `progress_backend.md` dengan informasi progres, kendala, dan solusi.
+
+**TIPS:** Sama seperti *frontend*, mulai dari struktur dasar, kembangkan fitur satu per satu, langsung lakukan tes, catat hasil tes dan *changelog*. **INGAT**, urutannya: fitur, tes, catat. Jika ada *error*, segera catat *error* tersebut.
+
+**OUTPUT:** `context_backend.md`, `progress_backend.md`
+
+## 6. Siapkan *Environment* Proyek *Backend*
+**Context:** `context_backend.md`, `progress_backend.md`, `postman-collection.json`
+
+Instal dependensi, buat struktur *folder*, dan lakukan tes arsitektur. Jika menggunakan *Laravel*, *environment* biasanya sudah siap secara *default*.
+
+**OUTPUT:** `progress_backend.md`, proyek siap digunakan, termasuk *unit test*
+
+## 7. Siapkan *Database* & Model
+**Context:** `context_backend.md`, `progress_backend.md`, `postman-collection.json`, `skema_database.plantuml`
+
+Berdasarkan skema *database* yang telah dibuat, implementasikan *database*-nya. Buat model dan *unit test*-nya. **UNIT TEST DI *BACKEND* WAJIB**.
+
+**Output:** *Database* siap digunakan, `progress_backend.md`
+
+## 8. Kembangkan Fitur Pertama hingga Fitur ke-N
+**Context:** `context_backend.md`, `progress_backend.md`, `postman-collection.json`, `skema_database.plantuml`
+
+Kerjakan fitur satu per satu, mulai dari fitur inti (misalnya autentikasi). Buat *unit test* untuk setiap fitur.
+
+**Tips:** Mulai dari fitur inti terlebih dahulu, lakukan tes, baru fitur lain, tes lagi. Terakhir *route*-nya, lalu tes *route*-nya.
+
+**Output:** `progress_backend.md`, *unit test* dan fitur berjalan dengan baik
+
+## 9. Cek *Testplan Backend*
+**Context:** `context_backend.md`, `progress_backend.md`, `postman-collection.json`, `testplan.md`
+
+Periksa apakah semua fitur *backend* sudah berjalan sesuai *requirement*. Jika ada penyesuaian, lakukan *prompting* lagi.
+
+**Output:** `testplan.md`, `progress_backend.md`, proyek *backend* siap digunakan
+
+## 10. Cek Integrasi dan *Finishing*
+**Context:** Proyek *frontend*, proyek *backend*, `context_frontend_backend.md`, `progress_frontend_backend.md`, `postman-collection.json`, `testplan.md`
+
+Lakukan pengujian integrasi antara *frontend* dan *backend*. Pastikan semua fitur terintegrasi dan berfungsi dengan baik.
+
+## 11. *Build* Aplikasi, *Deploy* (Keseluruhan)
+**Context:** Proyek *backend*, `context_backend.md`, `progress_backend.md` (dan `progress_frontend.md`)
+
+Atur *environment* ke *production* untuk *backend* dan *frontend*. Pilih platform *deployment* sesuai kebutuhan proyek.
+
+**Output:** Proyek *frontend* dan *backend* yang sudah di-*deploy*
+
+---
+
+## Feedback dan Saran
+
+**Ketidak Konsistenan dan Area yang Perlu Diperhatikan:**
+
+1.  **Penomoran Tahapan Backend:** Penomoran tahapan untuk sisi *Backend* dimulai dari 5 lagi, sama seperti *Frontend*. Ini mungkin membingungkan. Sebaiknya, penomoran *Backend* dilanjutkan atau menggunakan sistem penomoran yang berbeda (misalnya 5a, 6a, dst. atau B5, B6, dst.) untuk membedakan dengan jelas tahapan *Frontend*. *Namun, dalam format ini, pemisahan penomoran mungkin justru lebih jelas memisahkan alur Frontend dan Backend.*
+
+2.  **Konteks "Make AI":** Judul menyebutkan "aplikasi make AI," tetapi langkah-langkah yang dijabarkan lebih merupakan tahapan umum pengembangan aplikasi web atau perangkat lunak, dan kurang menekankan aspek spesifik AI.  **Saran:**
+    *   **Perjelas Integrasi AI:**  Tambahkan langkah atau sub-langkah yang lebih spesifik terkait integrasi AI. Misalnya:
+        *   **Tahap Pra-pemrosesan Data (jika relevan):** Jika aplikasi AI melibatkan data, tambahkan tahap persiapan dan pra-pemrosesan data sebelum pengembangan fitur.
+        *   **Integrasi Model AI:**  Jelaskan di tahap mana dan bagaimana model AI (yang sudah ada atau perlu dilatih) diintegrasikan ke dalam aplikasi (misalnya melalui API, *library*, dll.).
+        *   **Evaluasi dan Peningkatan Model AI:** Jika model AI perlu dilatih atau dioptimalkan, tambahkan tahap evaluasi performa model dan perbaikan (re-training, *fine-tuning*, dll.).
+    *   **Ganti Judul (Jika Fokus Bukan di AI Spesifik):** Jika fokus utama adalah pada proses pengembangan aplikasi secara umum dengan *potensi* integrasi AI di masa depan, pertimbangkan untuk mengganti judul menjadi lebih umum seperti "Langkah-Langkah Pengembangan Aplikasi Modern" atau "Proses Pengembangan Aplikasi Web Berbasis Fitur".
+
+3.  **Detail *Prompting*:**  Meskipun disebutkan *prompting* di awal, tidak ada detail lebih lanjut tentang bagaimana *prompting* digunakan dalam setiap tahapan. **Saran:**
+    *   **Contoh Penggunaan *Prompting*:** Berikan contoh konkret bagaimana *prompting* dapat digunakan di setiap tahapan. Misalnya:
+        *   **Tahap 0 (Ide Aplikasi):**  "*Prompting* dapat digunakan untuk *brainstorming* ide aplikasi berdasarkan topik atau masalah tertentu."
+        *   **Tahap 1 (Requirement):** "*Prompting* dapat digunakan untuk membantu menghasilkan daftar fitur awal berdasarkan ide aplikasi, atau untuk merumuskan *user story*."
+        *   **Tahap 2-4 (Arsitektur, Skema Database, API):** "*Prompting* dapat digunakan untuk menghasilkan saran arsitektur, skema *database* awal, atau bahkan *draft* dokumentasi API berdasarkan *requirement*."
+        *   **Tahap 5-9 (Frontend & Backend):** "*Prompting* dapat digunakan untuk menghasilkan *template code*, *mockup* UI, atau bahkan *unit test* awal."
+    *   **Alat *Prompting*:** Sebutkan atau sarankan alat atau platform *prompting* yang mungkin berguna (misalnya, model bahasa besar seperti GPT-3/ChatGPT, jika itu yang dimaksud).
+
+4.  **Aspek Non-Fungsional:** Daftar langkah ini lebih fokus pada aspek fungsional aplikasi (fitur). **Saran:**
+    *   **Tambahkan Pertimbangan Non-Fungsional:** Masukkan pertimbangan aspek non-fungsional seperti keamanan, performa, skalabilitas, *accessibility*, dan *maintainability* di setiap tahapan yang relevan. Misalnya, di tahap arsitektur, pertimbangkan keamanan dan skalabilitas. Di tahap *frontend* dan *backend*, pertimbangkan performa dan *accessibility*.
+
+5.  **Proses Iteratif dan *Agile*:** Proses ini terlihat linear. Pengembangan aplikasi modern seringkali iteratif dan *agile*. **Saran:**
+    *   **Tekankan Iterasi:**  Jelaskan bahwa tahapan-tahapan ini tidak selalu linear dan mungkin perlu diulang atau dikunjungi kembali (*iterative*). Terutama dengan penggunaan *prompting*, prosesnya cenderung eksperimental dan iteratif.
+    *   **Sebutkan Prinsip *Agile*:** Jika memungkinkan, kaitkan dengan prinsip-prinsip *Agile* seperti pengembangan inkremental, *feedback* berkelanjutan, dan adaptasi terhadap perubahan.
+
+6.  **Pengujian Lebih Komprehensif:** *Testplan* disebutkan, tetapi detail pengujian bisa diperluas. **Saran:**
+    *   **Jenis Pengujian:** Sebutkan jenis pengujian yang lebih spesifik selain *unit test*, seperti *integration test*, *end-to-end test*, *performance test*, *security test*, dan *user acceptance testing* (UAT).
+    *   **Otomatisasi Pengujian:**  Sarankan otomatisasi pengujian (*automated testing*) untuk efisiensi dan kualitas.
+
+7.  **Deployment dan *Maintenance*:** Tahap *deployment* disebutkan, tetapi *maintenance* setelah *deployment* kurang dibahas. **Saran:**
+    *   **Tahap *Maintenance*:** Tambahkan tahap setelah *deployment* yang membahas *maintenance* aplikasi, *monitoring*, *logging*, *bug fixing*, *update*, dan peningkatan berkelanjutan.
+
+8.  **Kolaborasi Tim:** Jika pengembangan aplikasi dilakukan oleh tim, aspek kolaborasi tim penting. **Saran:**
+    *   **Pertimbangan Kolaborasi:** Tambahkan poin tentang pentingnya kolaborasi tim, alat kolaborasi (*version control* seperti Git, *project management tools*, komunikasi tim), dan *code review*.
+
+**Secara Teori:**
+
+Secara teori, langkah-langkah yang dijabarkan cukup masuk akal untuk pengembangan aplikasi secara umum. Namun, perlu diingat bahwa ini adalah kerangka kerja tingkat tinggi. Dalam praktiknya, setiap tahapan bisa jauh lebih kompleks dan memerlukan detail yang lebih rinci, tergantung pada skala dan kompleksitas proyek.
+
+**Saran Tambahan:**
+
+*   **Tooling:** Sebutkan beberapa *tool* yang direkomendasikan untuk setiap tahapan (misalnya, untuk *prototyping*, *database design*, *API documentation*, *testing*, *deployment*, dll.).
+*   **Contoh Kasus:** Memberikan contoh kasus aplikasi sederhana yang mengikuti langkah-langkah ini akan sangat membantu pemahaman.
+*   **Target Audiens:** Perjelas target audiens dari tulisan ini. Apakah untuk pemula, *developer* menengah, atau tingkat lanjut? Penyesuaian gaya bahasa dan detail akan bergantung pada target audiens.
+
+Semoga feedback dan saran ini bermanfaat!
